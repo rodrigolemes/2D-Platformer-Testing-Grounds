@@ -201,6 +201,11 @@ MonoBehaviour:
   moveSpeed: 6
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.1
+  wallSlidingSpeedMax: 5
+  wallStickTime: 0.25
+  wallJumpClimb: {x: 7.5, y: 14}
+  wallJumpOff: {x: 8.5, y: 7}
+  wallLeap: {x: 18, y: 16}
 --- !u!114 &114928043887308120
 MonoBehaviour:
   m_ObjectHideFlags: 1
