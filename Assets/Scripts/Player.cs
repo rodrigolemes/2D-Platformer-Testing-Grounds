@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
 	public float moveSpeed = 6;
 	public float accelerationTimeAirborne = .2f;
 	public float accelerationTimeGrounded = .1f;
+	public float wallSlidingSpeedMax = 3;
 	
 	private float jumpVelocity;
 	private float gravity;
@@ -27,6 +28,15 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		bool wallSliding = false;
+		if ((controller.collisions.right || controller.collisions.left) && !controller.collisions.below && velocity.y < 0) {
+			wallSliding = true;
+
+			if (velocity.y < -wallSlidingSpeedMax) {
+				velocity.y = -wallSlidingSpeedMax;
+			}
+		}
 
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
